@@ -1,0 +1,85 @@
+@use "../../utils/functions"as *;
+@use "../../utils/mixins"as *;
+
+.consultation {
+  @include cover-background;
+  position: relative;
+  padding: 105px 0;
+  z-index: 1;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(#000 0, #0404043d 85%);
+    z-index: -1;
+    inset: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    background: linear-gradient(0deg, #000 0, #0404043d 85%);
+  }
+
+  .text {
+    max-width: 1090px;
+    margin-bottom: 60px;
+  }
+
+&__link {
+  @include flex-all-center;
+  gap: 40px;
+
+  span {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+  &__icon {
+    @include flex-all-center;
+    --R: 255;
+    --G: 165;
+    --B: 0;
+    position: relative;
+    border: 0;
+    height: 80px;
+    width: 80px;
+    background: rgba(var(--R), var(--G), var(--B));
+    border-radius: 50%;
+    animation: double-pulse 1.5s linear infinite;
+
+    &::before {
+      @include mask;
+      mask-image: url("../images/icons/telegram.svg");
+      width: 38px;
+      height: 32px;
+      background-color: var(--color-white);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -16px;
+    }
+  }
+}
+
+@keyframes double-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--R), var(--G), var(--B), 0.1), 0 0 0 0 rgba(0, 184, 255, 0);
+  }
+
+  25% {
+    box-shadow: 0 0 0 20px rgba(var(--R), var(--G), var(--B), 0.08), 0 0 0 0 rgba(var(--R), var(--G), var(--B), 0.12);
+  }
+
+  75% {
+    box-shadow: 0 0 0 40px rgba(var(--R), var(--G), var(--B), 0.04), 0 0 0 48px rgba(var(--R), var(--G), var(--B), 0.08);
+  }
+
+  100% {
+    box-shadow: 0 0 0 60px rgba(var(--R), var(--G), var(--B), 0), 0 0 0 72px rgba(var(--R), var(--G), var(--B), 0);
+  }
+}

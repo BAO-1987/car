@@ -1,0 +1,39 @@
+@use "../../utils/functions"as *;
+@use "../../utils/mixins"as *;
+
+.hero {
+  position: relative;
+  @include flex-all-center;
+  flex-direction: column;
+  // padding-top: clamp(30px, var(--header-height), 130px);
+  height: 100vh;
+  height: var(--vh);
+  background-position: right bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(176deg, rgba(15, 15, 15, 0.90) 2.76%, rgba(15, 15, 15, 0.85) 87.72%);
+    z-index: -1;
+    inset: 0 50% 0 -34%;
+    transform: skewX(-20deg);
+  }
+
+  &__desc {
+    min-height: 50vh;
+    width: 100%;
+    max-width: 685px;
+
+   }
+
+  // &__desc {
+  //   margin-bottom: rem(35);
+  // }
+
+  // .container {
+  //   height: 100%;
+  // }
+}

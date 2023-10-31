@@ -1,0 +1,38 @@
+@use "../../utils/functions"as *;
+@use "../../utils/mixins"as *;
+
+.leather {
+  margin-bottom: rem(125);
+  padding: rem(69) 0;
+  background-color: var(--color-orange-400);
+
+  &__slider {
+    overflow: hidden;
+    padding: 0 15px;
+  }
+
+  &__title {
+    margin-bottom: rem(65);
+
+    @include media(mobile-l) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__list {
+    @include flex-all-sb;
+  }
+
+  .name {
+    color: var(--color-white);
+
+    &::before {
+      background-color: var(--color-white);
+    }
+  }
+
+  @include media(tablet-wide) {
+    margin-bottom: 70px;
+    padding: 50px 0;
+  }
+}

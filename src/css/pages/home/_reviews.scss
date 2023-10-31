@@ -1,0 +1,100 @@
+@use "../../utils/functions"as *;
+@use "../../utils/mixins"as *;
+
+.reviews {
+  &__title {
+    margin-bottom: 5rem;
+  }
+
+  .btn {
+    margin: 0 auto;
+  }
+
+  &__inner {
+    padding-left: max(var(--container-offset), (100% - var(--content-width)) / 2);
+  }
+
+  &__slider {
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+
+    .swiper-pagination {
+      top: auto;
+      bottom: 0;
+    }
+
+    .swiper-pagination-progressbar {
+      background-color: var(--color-white);
+    }
+
+    .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+      background: var(--swiper-pagination-color, var(--color-orange-500));
+    }
+  }
+
+  &__item {
+    @include cover-background;
+
+    min-height: 700px;
+  }
+
+  &__blockqoute {
+    width: 100%;
+    max-width: 950px;
+    padding: 80px 80px 150px;
+    background-color: rgba(36, 36, 36, 0.95);
+  }
+
+  &__autor {
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 16px;
+    font-family: var(--font-family-secondary);
+    font-size: clamp(1.875rem, calc(1.8rem + 0.375vw), 2.25rem);
+    line-height: 1;
+
+    &::before {
+      content: "/";
+      position: absolute;
+      color: currentcolor;
+      left: 0;
+      top: 4px;
+      font-size: 30px;
+    }
+  }
+
+  .text {
+    margin: 0;
+
+    p {
+      position: relative;
+      width: 100%;
+      max-width: 575px;
+      padding: 0 1.5rem;
+
+      &::before,
+      &::after {
+        @include mask;
+        width: 20px;
+        height: 20px;
+        mask-image: url("../images/icons/quotes.svg");
+        background-color: var(--color-orange-500);
+      }
+
+      &::before {
+        left: 0;
+        top: 4px;
+      }
+
+      &::after {
+        position: relative;
+        display: inline-block;
+        rotate: 180deg;
+        bottom: -4;
+        right: -8px;
+      }
+    }
+  }
+}

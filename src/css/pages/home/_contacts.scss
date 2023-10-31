@@ -1,0 +1,77 @@
+@use "../../utils/functions"as *;
+@use "../../utils/mixins"as *;
+
+.contacts {
+  position: relative;
+  background-color: var(--color-orange-500);
+
+  &__inner {
+    @include flex-sb;
+  }
+
+  &__image {
+    max-height: 650px;
+  }
+}
+
+.address {
+  padding: 80px 0;
+  padding-right: max(var(--container-offset), (100% - var(--content-width)) / 2);
+  margin: 0 auto;
+
+
+  &__item {
+    @include flex;
+    flex-direction: column;
+    padding-left: 60px;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &::before {
+      @include mask;
+      left: 0;
+      width: 40px;
+      height: 40px;
+    }
+
+    &--pin {
+      &::before {
+        mask-image: url('../images/icons/pin.svg');
+      }
+    }
+
+    &--mail {
+      &::before {
+        mask-image: url('../images/icons/email.svg');
+      }
+    }
+
+    &--phone {
+      &::before {
+        mask-image: url('../images/icons/phone.svg');
+      }
+    }
+
+    &--shedule {
+
+      span {
+        max-width: 150px;
+      }
+
+      &::before {
+        mask-image: url('../images/icons/clock.svg');
+      }
+    }
+  }
+
+  &__link {
+    font-family: var(--font-family-secondary);
+    font-weight: 400;
+    font-size: 1rem;
+  }
+}

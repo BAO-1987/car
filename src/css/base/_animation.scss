@@ -1,0 +1,17 @@
+@keyframes double-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--R), var(--G), var(--B), 0.1), 0 0 0 0 rgba(0, 184, 255, 0);
+  }
+
+  25% {
+    box-shadow: 0 0 0 20px rgba(var(--R), var(--G), var(--B), 0.08), 0 0 0 0 rgba(var(--R), var(--G), var(--B), 0.12);
+  }
+
+  75% {
+    box-shadow: 0 0 0 40px rgba(var(--R), var(--G), var(--B), 0.04), 0 0 0 48px rgba(var(--R), var(--G), var(--B), 0.08);
+  }
+
+  100% {
+    box-shadow: 0 0 0 60px rgba(var(--R), var(--G), var(--B), 0), 0 0 0 72px rgba(var(--R), var(--G), var(--B), 0);
+  }
+}

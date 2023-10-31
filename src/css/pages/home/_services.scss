@@ -1,0 +1,166 @@
+@use "../../utils/functions"as *;
+@use "../../utils/mixins"as *;
+
+.services {
+
+  @include cover-background;
+  // height: var(--vh);
+  position: relative;
+  padding-top: 95px;
+  z-index: 2;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-image: linear-gradient(0deg, #000 14%, rgba(4, 4, 4, 0) 100%);
+    inset: 0;
+  }
+
+  &__inner {
+    display: grid;
+   height: var(--vh);
+
+
+    &>* {
+      grid-area: 1/1;
+    }
+  }
+
+  &__content {
+    align-self: flex-start;
+  }
+
+  &__slider {
+    isolation: isolate;
+    position: relative;
+    overflow: hidden;
+    align-self: center;
+    // padding-bottom: 95px;
+  }
+
+  &__list {
+    margin-bottom: 80px;
+  }
+
+  &__item {
+  translate: 0 77%;
+    transition: translate 0.3s linear;
+
+    .title-sec {
+      margin-bottom: 30px;
+    }
+
+
+
+    &--active {
+      translate: 0;
+
+
+      &>.services__desc {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        overflow: auto;
+      }
+
+      &>.services__btn {
+        &::after {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+
+  &__navs {
+    @include flex-all-sb;
+  }
+
+  &__btn {
+    cursor: pointer;
+    @include flex-all-center;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(62, 62, 62, 0.6);
+    border-left: 2px solid var(--color-orange-500);
+    translate: 0 var(--height-hide);
+
+    &::before,
+    &::after {
+      content: "";
+      color: var(--color-white);
+      width: 20px;
+      height: 0;
+      border-bottom: 1px solid;
+      position: absolute;
+      top: calc(50% - 1px);
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      transform: rotate(90deg);
+      transform-origin: 50% 50%;
+    }
+
+    [open]::after {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__desc {
+    padding-top: 20px;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    transition: clip-path 0.3s linear;
+    overflow: hidden;
+  }
+
+}
+
+// .accordion {
+//   max-height: 125px;
+//   &__btn {
+//     cursor: pointer;
+
+//       @include flex-all-center;
+//       position: relative;
+//       width: 50px;
+//       height: 50px;
+//       background-color: rgba(62, 62, 62, 0.6);
+//       border-left: 2px solid var(--color-orange-500);
+
+//       &::before,
+//       &::after {
+//         content: "";
+//         color: var(--color-white);
+//         width: 20px;
+//         height: 0;
+//         border-bottom: 1px solid;
+//         position: absolute;
+//         top: calc(50% - 1px);
+//         // left: 0;
+//         transform: translateY(-50%);
+//       }
+
+//       &::after {
+//         transform: rotate(90deg);
+//         transform-origin: 50% 50%;
+//       }
+
+//       [open]::after {
+//         transform: rotate(0deg);
+//       }
+//     }
+
+//     &[open] {
+
+//       max-height: 100%;
+//       height: 100%;
+
+//       summary {
+//         color: var(--color-orange-500);
+
+//         &::after {
+//           transform: rotate(0deg);
+//         }
+//       }
+//     }
+//   }

@@ -1,0 +1,132 @@
+@use "../utils/functions/" as *;
+@use "../utils/mixins/" as *;
+
+.header {
+  position: absolute;
+  width: 100%;
+  padding: 30px 0;
+  background-color: var(--color-black);
+}
+
+.nav {
+  @include flex-all-sb;
+
+  &__list {
+    @include flex-all-sb;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      position: relative;
+      margin-right: clamp(rem(20), calc(0.5rem + vw(34)), rem(42));
+
+      &::before {
+        content: "/";
+        position: absolute;
+        color: var(--color-orange-500);
+        right: -24px;
+        top: 1px;
+        height: 17px;
+        width: 1px;
+      }
+    }
+
+    &:nth-child(4n + 1) {
+      margin-right: clamp(rem(20), calc(1rem + vw(57)), rem(73));
+
+      &:before {
+        right: -47px;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: rem(14);
+    line-height: 1.7;
+    text-transform: uppercase;
+
+    &--dropdown {
+      &::before {
+        @include mask;
+
+        mask-image: url("../images/icons/arrow.svg");
+        width: 24px;
+        height: 24px;
+        right: -25px;
+      }
+    }
+  }
+}
+
+.social {
+  &__list {
+    @include flex-all-sb;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    @include flex-all-center;
+
+    border-radius: 100vw;
+    border: 1px solid transparent;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-orange-500);
+
+    &:before {
+      @include mask;
+
+      width: 1rem;
+      height: 1rem;
+    }
+
+    &--in {
+      &::before {
+        mask-image: url("../images/icons/instagram.svg");
+      }
+    }
+
+    &--fb {
+      &::before {
+        width: 30px;
+        height: 30px;
+        mask-image: url("../images/icons/facebook.svg");
+      }
+    }
+
+    &--tg {
+      &::before {
+        width: 14px;
+        height: 12px;
+        mask-image: url("../images/icons/telegram.svg");
+      }
+    }
+  }
+}
+
+.lang {
+  @include flex-all-center;
+  gap: 5px;
+
+  img {
+    border-radius: var(--br);
+  }
+
+  span {
+    display: block;
+    font-size: rem(14);
+    line-height: 1.14;
+  }
+}
+
+.header__action {
+  @include flex;
+  gap: 10px;
+}

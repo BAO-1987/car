@@ -1,0 +1,20 @@
+@use "../utils/functions/"as *;
+@use "../utils/mixins/"as *;
+
+.footer {
+  &__inner {
+    @include flex-all-sb;
+    padding: 40px 0;
+
+    .social__link {
+      color: var(--color-white);
+      background-color: transparent;
+      border-color: var(--color-white);
+    }
+  }
+
+  &__copy {
+    font-size: rem(14);
+    text-transform: uppercase;
+  }
+}

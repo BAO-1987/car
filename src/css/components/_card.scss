@@ -1,0 +1,115 @@
+@use "../utils/functions/"as *;
+@use "../utils/mixins/"as *;
+
+.card {
+
+  &__slider {
+    padding-top: 50px;
+    overflow: hidden;
+  }
+
+  &__item {
+    min-height: 300px;
+    height: auto;
+    perspective: 800px;
+
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+.card-item {
+
+  &__box {
+    position: relative;
+
+
+    transform-style: preserve-3d;
+    transition: rotate 1s linear;
+  }
+
+    &:nth-child(odd) {
+
+      div {
+        background-color: var(--color-white);
+        color: var(--color-black);
+      }
+    }
+
+    &:nth-child(even) {
+      div {
+        color: var(--color-white);
+        background-color: var(--color-orange-400);
+      }
+    }
+
+
+  &__front,
+  &__back {
+    padding: 30px 15px 40px;
+  }
+
+  &__front {
+    width: 100%;
+    position: absolute;
+    // opacity: 1;
+    inset: 0;
+    display: grid;
+    place-content: center;
+
+    backface-visibility: hidden;
+
+
+    // transform-style: preserve-3d;
+    // transition: rotate 1s linear;
+
+    &::before {
+      @include mask;
+      mask-image: url("../images/icons/big-arrow.svg");
+      width: 100px;
+      top: 15px;
+      right: 15px;
+      height: 8px;
+    }
+  }
+
+  &__back {
+    // opacity: 0;
+    backface-visibility: hidden;
+    transition:
+      opacity 0.3s linear,
+      color 0.3s linear rotate 0.3 linear;
+
+
+
+    .card-item__title {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__img {
+    display: grid;
+    justify-self: center;
+    max-width: 150px;
+    max-height: 100px;
+    margin-bottom: 50px;
+  }
+
+
+  &:hover {
+
+    .card-item__box {
+      rotate: y 180deg;
+    }
+
+    // .card-item__front {
+    //  rotate: y 0deg;
+    // }
+
+    .card-item__back {
+      // opacity: 1;
+      rotate: y 180deg;
+    }
+  }
+}

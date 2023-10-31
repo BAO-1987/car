@@ -1,0 +1,10 @@
+import './components/_burger';
+import './components/_dialog';
+import './components/_textUpOnClick';
+import './components/_shortsSlider';
+import './components/_leatherSlider';
+import './components/_reviewsSlider';
+import './components/_gallerySlider';
+import './components/_parallaxService';
+import './components/_scroller';
+import './components/_close';

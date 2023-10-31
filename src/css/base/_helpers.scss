@@ -1,0 +1,132 @@
+@use "../utils/functions/"as*;
+@use "../utils/mixins/"as*;
+
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  white-space: nowrap !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+}
+
+.dis-scroll {
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  overscroll-behavior: none;
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  max-width: 100px;
+
+  @include media(tablet) {
+    margin-right: auto;
+  }
+}
+
+.front,
+.back {
+  @include flex;
+
+  flex-direction: column;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front {
+  >* {
+    margin: auto;
+  }
+}
+
+.back {
+  rotate: y 180deg;
+
+  h3,
+  .shorts__title {
+    margin-bottom: 20px;
+  }
+}
+
+.arrow {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg width='101' height='8' viewBox='0 0 101 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100.354 4.35355C100.549 4.15829 100.549 3.84171 100.354 3.64645L97.1716 0.464466C96.9763 0.269204 96.6597 0.269204 96.4645 0.464466C96.2692 0.659728 96.2692 0.976311 96.4645 1.17157L99.2929 4L96.4645 6.82843C96.2692 7.02369 96.2692 7.34027 96.4645 7.53553C96.6597 7.7308 96.9763 7.7308 97.1716 7.53553L100.354 4.35355ZM0 4.5H100V3.5H0V4.5Z' fill='white'/%3E%3C/svg%3E%0A");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.name {
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 16px;
+  line-height: 1;
+  text-transform: lowercase;
+  color: var(--color-orange-400);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    width: 1px;
+    height: 100%;
+    background-color: var(--color-orange-400);
+    transform: skew(-20deg);
+  }
+}
+
+.left-indent {
+  margin-left: max(var(--container-offset), calc((100% - var(--container-width)) / 2 + 15px));
+}
+
+.rigth-indent {
+  margin-right: max(var(--container-offset), calc((100% - var(--container-width)) / 2 + 15px));
+}
+
+.map {
+  position: relative;
+  display: block;
+  height: auto;
+  max-height: 440px;
+
+  a {
+    position: absolute;
+    inset: 0;
+  }
+
+  img {
+    width: 100%;
+    max-height: 440px;
+    object-fit: none;
+    object-position: center;
+  }
+}
