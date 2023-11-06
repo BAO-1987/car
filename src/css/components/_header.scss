@@ -1,10 +1,10 @@
-@use "../utils/functions/" as *;
-@use "../utils/mixins/" as *;
+@use "../utils/functions/"as *;
+@use "../utils/mixins/"as *;
 
 .header {
   position: absolute;
+  padding: rem(30) 0;
   width: 100%;
-  padding: 30px 0;
   background-color: var(--color-black);
 }
 
@@ -13,116 +13,53 @@
 
   &__list {
     @include flex-all-sb;
+
+    padding: 0 1rem;
   }
 
   &__item {
     &:not(:last-child) {
       position: relative;
-      margin-right: clamp(rem(20), calc(0.5rem + vw(34)), rem(42));
+      padding: 0 clamp(10px, vw(21), rem(22));
 
       &::before {
         content: "/";
         position: absolute;
-        color: var(--color-orange-500);
-        right: -24px;
-        top: 1px;
+        right: 0;
+        width: 2px;
         height: 17px;
-        width: 1px;
+        color: var(--color-orange-500);
       }
     }
 
     &:nth-child(4n + 1) {
-      margin-right: clamp(rem(20), calc(1rem + vw(57)), rem(73));
+      padding-right: clamp(rem(20), calc(1rem + vw(31)), rem(47));
+    }
 
-      &:before {
-        right: -47px;
-      }
+    &:last-child {
+      padding-left: 21px;
+    }
+
+    &:first-child {
+      padding-left: 0;
     }
   }
 
   &__link {
     position: relative;
     font-size: rem(14);
-    line-height: 1.7;
+    line-height: 1.2;
+    white-space: nowrap;
     text-transform: uppercase;
 
     &--dropdown {
       &::before {
         @include mask;
 
-        mask-image: url("../images/icons/arrow.svg");
-        width: 24px;
-        height: 24px;
         right: -25px;
+        mask-image: url("../images/icons/arrow.svg");
       }
     }
-  }
-}
-
-.social {
-  &__list {
-    @include flex-all-sb;
-  }
-
-  &__item {
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
-  }
-
-  &__link {
-    position: relative;
-    @include flex-all-center;
-
-    border-radius: 100vw;
-    border: 1px solid transparent;
-    width: 30px;
-    height: 30px;
-    background-color: var(--color-orange-500);
-
-    &:before {
-      @include mask;
-
-      width: 1rem;
-      height: 1rem;
-    }
-
-    &--in {
-      &::before {
-        mask-image: url("../images/icons/instagram.svg");
-      }
-    }
-
-    &--fb {
-      &::before {
-        width: 30px;
-        height: 30px;
-        mask-image: url("../images/icons/facebook.svg");
-      }
-    }
-
-    &--tg {
-      &::before {
-        width: 14px;
-        height: 12px;
-        mask-image: url("../images/icons/telegram.svg");
-      }
-    }
-  }
-}
-
-.lang {
-  @include flex-all-center;
-  gap: 5px;
-
-  img {
-    border-radius: var(--br);
-  }
-
-  span {
-    display: block;
-    font-size: rem(14);
-    line-height: 1.14;
   }
 }
 

@@ -38,9 +38,73 @@
   display: block;
   width: 100%;
   max-width: 100px;
+  flex-shrink: 0;
+}
 
-  @include media(tablet) {
-    margin-right: auto;
+.social {
+  &__list {
+    @include flex-all-sb;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: clamp(0.5rem, 1vw, 1.3rem);
+    }
+  }
+
+  &__link {
+    position: relative;
+    @include flex-all-center;
+
+    border-radius: 100vw;
+    border: 1px solid transparent;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-orange-500);
+
+    &:before {
+      @include mask;
+
+      width: 1rem;
+      height: 1rem;
+    }
+
+    &--in {
+      &::before {
+        mask-image: url("../images/icons/instagram.svg");
+      }
+    }
+
+    &--fb {
+      &::before {
+        width: 30px;
+        height: 30px;
+        mask-image: url("../images/icons/facebook.svg");
+      }
+    }
+
+    &--tg {
+      &::before {
+        width: 14px;
+        height: 12px;
+        mask-image: url("../images/icons/telegram.svg");
+      }
+    }
+  }
+}
+
+.lang {
+  @include flex-all-center;
+  gap: 5px;
+
+  img {
+    border-radius: var(--br);
+  }
+
+  span {
+    display: block;
+    font-size: rem(14);
+    line-height: 1.14;
   }
 }
 

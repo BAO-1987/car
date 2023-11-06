@@ -16,7 +16,7 @@
     "@parcel/optimizer-data-url": "^2.8.2",
     "@parcel/optimizer-esbuild": "^2.8.3",
     "@parcel/optimizer-svgo": "^2.8.2",
-    "@parcel/transformer-inline-string": "^2.9.3",
+    "@parcel/transformer-inline-string": "^2.8.3",
     "@parcel/transformer-postcss": "^2.8.2",
     "@parcel/transformer-sass": "^2.8.3",
     "@parcel/transformer-svg": "^2.8.2",
@@ -49,8 +49,6 @@
   "parcel-namer-rewrite": {},
   "dependencies": {
     "@fancyapps/ui": "^5.0.20",
-    "@parcel/transformer-image": "^2.0.0-nightly.2433",
-    "caniuse-lite": "^1.0.30001546",
     "source-map-url": "^0.4.1",
     "swiper": "^8.4.7"
   },

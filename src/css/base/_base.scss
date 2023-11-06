@@ -39,6 +39,7 @@
   @include footerToBottom;
 }
 
+
 .btn {
   @include flex-all-center;
   margin-left: 8px;
@@ -94,4 +95,73 @@
 
 .section {
   margin-bottom: clamp(2.5rem, calc(1.5rem + vw(126)), 9.375rem);
+}
+
+.progress {
+  position: relative;
+  display: grid;
+  place-content: end;
+
+  &__navs {
+    @include flex-all-sb;
+
+    gap: rem(20);
+  }
+
+  .swiper-pagination {
+    top: auto;
+    bottom: 0;
+    max-width: 235px;
+  }
+
+  .swiper-pagination-progressbar {
+    background-color: var(--color-white);
+  }
+
+  .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: var(--swiper-pagination-color, var(--color-orange-500));
+  }
+}
+
+.range {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  inset: 0;
+
+  &__btn {
+    position: absolute;
+    left: var(--position);
+    top: 50%;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--color-orange-500);
+    border-radius: 100vw;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-white);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+
+    &::before,
+    &::after {
+      @include mask;
+
+      left: 0;
+      mask-image: url("../images/icons/arrow.svg");
+      background-color: var(--color-orange-500);
+      rotate: 90deg;
+    }
+
+    &::after {
+      left: auto;
+      right: 0;
+      rotate: -90deg;
+    }
+  }
 }

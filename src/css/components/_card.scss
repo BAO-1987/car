@@ -4,7 +4,7 @@
 .card {
 
   &__slider {
-    padding-top: 50px;
+    padding: 50px 0 20px;
     overflow: hidden;
   }
 
@@ -23,26 +23,25 @@
 
   &__box {
     position: relative;
-
-
+    height: 100%;
     transform-style: preserve-3d;
     transition: rotate 1s linear;
   }
 
-    &:nth-child(odd) {
+  &:nth-child(odd) {
 
-      div {
-        background-color: var(--color-white);
-        color: var(--color-black);
-      }
+    div {
+      background-color: var(--color-white);
+      color: var(--color-black);
     }
+  }
 
-    &:nth-child(even) {
-      div {
-        color: var(--color-white);
-        background-color: var(--color-orange-400);
-      }
+  &:nth-child(even) {
+    div {
+      color: var(--color-white);
+      background-color: var(--color-orange-400);
     }
+  }
 
 
   &__front,
@@ -51,23 +50,19 @@
   }
 
   &__front {
+    padding-top: 4rem;
     width: 100%;
     position: absolute;
-    // opacity: 1;
     inset: 0;
     display: grid;
     place-content: center;
-
     backface-visibility: hidden;
-
-
-    // transform-style: preserve-3d;
-    // transition: rotate 1s linear;
+    transition: opacity 1s linear;
 
     &::before {
       @include mask;
       mask-image: url("../images/icons/big-arrow.svg");
-      width: 100px;
+      width: 104px;
       top: 15px;
       right: 15px;
       height: 8px;
@@ -75,16 +70,11 @@
   }
 
   &__back {
-    // opacity: 0;
     backface-visibility: hidden;
-    transition:
-      opacity 0.3s linear,
-      color 0.3s linear rotate 0.3 linear;
-
-
-
+ 
     .card-item__title {
       margin-bottom: 20px;
+      text-align: center;
     }
   }
 
@@ -103,9 +93,9 @@
       rotate: y 180deg;
     }
 
-    // .card-item__front {
-    //  rotate: y 0deg;
-    // }
+    .card-item__front {
+     opacity: 0;
+    }
 
     .card-item__back {
       // opacity: 1;
