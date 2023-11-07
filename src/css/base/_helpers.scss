@@ -53,20 +53,25 @@
   }
 
   &__link {
-    position: relative;
     @include flex-all-center;
 
-    border-radius: 100vw;
+    position: relative;
     border: 1px solid transparent;
+    border-radius: 100vw;
     width: 30px;
     height: 30px;
     background-color: var(--color-orange-500);
+    transition: background-color 0.3s linear;
 
-    &:before {
+    &::before {
       @include mask;
 
       width: 1rem;
       height: 1rem;
+    }
+
+    &:hover {
+      background-color: var(--color-orange-600);
     }
 
     &--in {

@@ -2,9 +2,8 @@
 @use "../utils/mixins/"as *;
 
 .card {
-
   &__slider {
-    padding: 50px 0 20px;
+    padding: clamp(1.5rem, calc(1rem + vw(34)), 3.125rem) 0 20px;
     overflow: hidden;
   }
 
@@ -20,16 +19,15 @@
 }
 
 .card-item {
-
   &__box {
     position: relative;
     height: 100%;
+    perspective: 800px;
     transform-style: preserve-3d;
-    transition: rotate 1s linear;
+    transition: rotate 1s;
   }
 
   &:nth-child(odd) {
-
     div {
       background-color: var(--color-white);
       color: var(--color-black);
@@ -43,10 +41,10 @@
     }
   }
 
-
   &__front,
   &__back {
     padding: 30px 15px 40px;
+    backface-visibility: hidden;
   }
 
   &__front {
@@ -56,8 +54,6 @@
     inset: 0;
     display: grid;
     place-content: center;
-    backface-visibility: hidden;
-    transition: opacity 1s linear;
 
     &::before {
       @include mask;
@@ -71,7 +67,7 @@
 
   &__back {
     backface-visibility: hidden;
- 
+
     .card-item__title {
       margin-bottom: 20px;
       text-align: center;
@@ -86,19 +82,17 @@
     margin-bottom: 50px;
   }
 
-
   &:hover {
-
     .card-item__box {
       rotate: y 180deg;
     }
 
     .card-item__front {
-     opacity: 0;
+      opacity: 0;
+      transition: opacity 0.6s;
     }
 
     .card-item__back {
-      // opacity: 1;
       rotate: y 180deg;
     }
   }

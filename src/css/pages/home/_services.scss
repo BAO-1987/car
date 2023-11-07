@@ -4,9 +4,9 @@
 .services {
 
   @include cover-background;
-  // height: var(--vh);
+  height: var(--vh);
   position: relative;
-  padding-top: 95px;
+  padding: 95px 0;
   z-index: 2;
 
   &::before {
@@ -19,12 +19,10 @@
 
   &__inner {
     display: grid;
-   height: var(--vh);
+   height: 100%;
+grid-template-rows: repeat(2, 1fr);
 
-
-    &>* {
-      grid-area: 1/1;
-    }
+   
   }
 
   &__content {
@@ -40,7 +38,7 @@
   }
 
   &__list {
-    margin-bottom: 80px;
+    // margin-bottom: 80px;
   }
 
   &__item {
@@ -48,14 +46,13 @@
     transition: translate 0.3s linear;
 
     .title-sec {
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+      min-height: 50px;
     }
-
 
 
     &--active {
       translate: 0;
-
 
       &>.services__desc {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
