@@ -2,11 +2,12 @@
 @use "../../utils/mixins"as *;
 
 .services {
+  // margin-bottom: 0;
 
   @include cover-background;
   height: var(--vh);
   position: relative;
-  padding: 95px 0;
+  padding-top: 95px;
   z-index: 2;
 
   &::before {
@@ -19,22 +20,22 @@
 
   &__inner {
     display: grid;
-   height: 100%;
-grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 0.1fr 2.8fr 0.1fr;
+      //  grid-template-rows: 1fr 2fr 1fr;
+    height: 100%;
 
-   
+
   }
 
   &__content {
-    align-self: flex-start;
+    height: fit-content;
   }
 
   &__slider {
     isolation: isolate;
     position: relative;
     overflow: hidden;
-    align-self: center;
-    // padding-bottom: 95px;
+    padding-bottom: 25px;
   }
 
   &__list {
@@ -42,7 +43,7 @@ grid-template-rows: repeat(2, 1fr);
   }
 
   &__item {
-  translate: 0 77%;
+    translate: 0 77%;
     transition: translate 0.3s linear;
 
     .title-sec {
@@ -68,6 +69,7 @@ grid-template-rows: repeat(2, 1fr);
   }
 
   &__navs {
+    height: fit-content;
     @include flex-all-sb;
   }
 
