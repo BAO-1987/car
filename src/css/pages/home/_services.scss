@@ -2,10 +2,10 @@
 @use "../../utils/mixins"as *;
 
 .services {
-  // margin-bottom: 0;
 
   @include cover-background;
   height: var(--vh);
+  min-height: 700px;
   position: relative;
   padding-top: 95px;
   z-index: 2;
@@ -21,10 +21,7 @@
   &__inner {
     display: grid;
     grid-template-rows: 0.1fr 2.8fr 0.1fr;
-      //  grid-template-rows: 1fr 2fr 1fr;
     height: 100%;
-
-
   }
 
   &__content {
